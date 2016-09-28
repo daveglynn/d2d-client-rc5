@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c4e4aa8f-9530-4947-a96b-93539317595f}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>systemjs.config.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <EnableTypeScript>true</EnableTypeScript>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="app\errors\error.component.html" />
+    <Content Include="app\errors\error.component.js.map" />
+    <Content Include="app\errors\error.js.map" />
+    <Content Include="app\errors\error.service.js.map" />
+    <Content Include="app\master\items\item.js.map" />
+    <Content Include="app\master\items\item.service.js.map" />
+    <Content Include="app\master\languages\language.js.map" />
+    <Content Include="app\master\languages\language.service.js.map" />
+    <Content Include="app\master\lists\list.js.map" />
+    <Content Include="app\master\lists\list.service.js.map" />
+    <Content Include="app\master\profiles\profile.js.map" />
+    <Content Include="app\master\profiles\profile.service.js.map" />
+    <Content Include="app\master\rulebooks\ruleBook.js.map" />
+    <Content Include="app\master\rulebooks\ruleBook.service.js.map" />
+    <Content Include="app\security\users\user-form.component.html" />
+    <Content Include="app\security\users\user-form.component.js.map" />
+    <Content Include="app\security\users\user.js.map" />
+    <Content Include="app\security\users\user.service.js.map" />
+    <Content Include="app\security\users\users.component.html" />
+    <Content Include="app\security\users\users.component.js.map" />
+    <Content Include="app\security\users\users.module.js.map" />
+    <Content Include="app\security\users\users.routing.js.map" />
+    <Content Include="app\shared\components\tableSimple.component.html" />
+    <Content Include="app\shared\components\tableSimple.component.js.map" />
+    <Content Include="app\shared\directives\focus.directive.js.map" />
+    <Content Include="app\shared\components\pagination.component.js.map" />
+    <Content Include="app\shared\components\spinner.component.js.map" />
+    <Content Include="app\shared\helpers\common.js.map" />
+    <Content Include="app\shared\helpers\common.service.js.map" />
+    <Content Include="app\shared\helpers\constants.service.js.map" />
+    <Content Include="app\shared\helpers\dropdown.js.map" />
+    <Content Include="app\shared\pipes\format.pipe.js.map" />
+    <Content Include="app\shared\pipes\orderBy.pipe.js.map" />
+    <Content Include="assets\custom\stylesheets\override.css" />
+    <Content Include="assets\custom\stylesheets\override_bootstrap.css" />
+    <Content Include="assets\custom\stylesheets\united_bootstrap.css" />
+    <Content Include="index.html" />
+    <Content Include="package.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="typings.json" />
+    <Content Include="README.md" />
+    <Compile Include="app\errors\error.component.js" />
+    <Compile Include="app\errors\error.js" />
+    <Compile Include="app\errors\error.service.js" />
+    <Compile Include="app\master\items\item.js" />
+    <Compile Include="app\master\items\item.service.js" />
+    <Compile Include="app\master\languages\language.js" />
+    <Compile Include="app\master\languages\language.service.js" />
+    <Compile Include="app\master\lists\list.js" />
+    <Compile Include="app\master\lists\list.service.js" />
+    <Compile Include="app\master\profiles\profile.js" />
+    <Compile Include="app\master\profiles\profile.service.js" />
+    <Compile Include="app\master\rulebooks\ruleBook.js" />
+    <Compile Include="app\master\rulebooks\ruleBook.service.js" />
+    <Compile Include="app\security\users\user-form.component.js" />
+    <Compile Include="app\security\users\user.js" />
+    <Compile Include="app\security\users\user.service.js" />
+    <Compile Include="app\security\users\users.component.js" />
+    <Compile Include="app\security\users\users.module.js" />
+    <Compile Include="app\security\users\users.routing.js" />
+    <Compile Include="app\shared\components\tableSimple.component.js" />
+    <Compile Include="app\shared\directives\focus.directive.js" />
+    <Compile Include="app\shared\components\pagination.component.js" />
+    <Compile Include="app\shared\components\spinner.component.js" />
+    <Compile Include="app\shared\helpers\common.js" />
+    <Compile Include="app\shared\helpers\common.service.js" />
+    <Compile Include="app\shared\helpers\constants.service.js" />
+    <Compile Include="app\shared\helpers\dropdown.js" />
+    <Compile Include="app\shared\pipes\format.pipe.js" />
+    <Compile Include="app\shared\pipes\orderBy.pipe.js" />
+    <Compile Include="systemjs.config.js" />
+    <Content Include="app\navbar.component.html" />
+    <TypeScriptCompile Include="app\app.component.ts" />
+    <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\app.routing.ts" />
+    <TypeScriptCompile Include="app\errors\error.component.ts" />
+    <TypeScriptCompile Include="app\errors\error.service.ts" />
+    <TypeScriptCompile Include="app\errors\error.ts" />
+    <TypeScriptCompile Include="app\home.component.ts" />
+    <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\master\items\item.service.ts" />
+    <TypeScriptCompile Include="app\master\items\item.ts" />
+    <TypeScriptCompile Include="app\master\languages\language.service.ts" />
+    <TypeScriptCompile Include="app\master\languages\language.ts" />
+    <TypeScriptCompile Include="app\master\lists\list.service.ts" />
+    <TypeScriptCompile Include="app\master\lists\list.ts" />
+    <TypeScriptCompile Include="app\master\profiles\profile.service.ts" />
+    <TypeScriptCompile Include="app\master\profiles\profile.ts" />
+    <TypeScriptCompile Include="app\master\rulebooks\ruleBook.service.ts" />
+    <TypeScriptCompile Include="app\master\rulebooks\ruleBook.ts" />
+    <TypeScriptCompile Include="app\navbar.component.ts" />
+    <TypeScriptCompile Include="app\prevent-unsaved-changes-guard.service.ts" />
+    <Compile Include="app\app.component.js" />
+    <Compile Include="app\app.module.js" />
+    <Compile Include="app\app.routing.js" />
+    <Compile Include="app\home.component.js" />
+    <Compile Include="app\main.js" />
+    <Compile Include="app\navbar.component.js" />
+    <Compile Include="app\prevent-unsaved-changes-guard.service.js" />
+    <TypeScriptCompile Include="app\security\users\user-form.component.ts" />
+    <TypeScriptCompile Include="app\security\users\user.service.ts" />
+    <TypeScriptCompile Include="app\security\users\user.ts" />
+    <TypeScriptCompile Include="app\security\users\users.component.ts" />
+    <TypeScriptCompile Include="app\security\users\users.module.ts" />
+    <TypeScriptCompile Include="app\security\users\users.routing.ts" />
+    <TypeScriptCompile Include="app\not-found.component.ts" />
+    <TypeScriptCompile Include="app\shared\components\tableSimple.component.ts" />
+    <TypeScriptCompile Include="app\shared\directives\focus.directive.ts" />
+    <TypeScriptCompile Include="app\shared\components\pagination.component.ts" />
+    <TypeScriptCompile Include="app\shared\components\spinner.component.ts" />
+    <TypeScriptCompile Include="app\shared\helpers\common.service.ts" />
+    <TypeScriptCompile Include="app\shared\helpers\common.ts" />
+    <TypeScriptCompile Include="app\shared\helpers\constants.service.ts" />
+    <TypeScriptCompile Include="app\shared\helpers\dropdown.ts" />
+    <TypeScriptCompile Include="app\shared\pipes\format.pipe.ts" />
+    <TypeScriptCompile Include="app\shared\pipes\orderBy.pipe.ts" />
+    <TypeScriptCompile Include="app\shared\validators\client.async.validators.ts" />
+    <TypeScriptCompile Include="typings\index.d.ts" />
+    <Content Include="app\posts\posts.component.html" />
+    <TypeScriptCompile Include="app\posts\post.service.ts" />
+    <TypeScriptCompile Include="app\posts\posts.component.ts" />
+    <TypeScriptCompile Include="app\posts\posts.module.ts" />
+    <TypeScriptCompile Include="app\posts\posts.routing.ts" />
+    <Compile Include="app\posts\post.service.js" />
+    <Compile Include="app\posts\posts.component.js" />
+    <Compile Include="app\posts\posts.module.js" />
+    <Compile Include="app\posts\posts.routing.js" />
+    <TypeScriptCompile Include="app\shared\validators\client.validators.ts" />
+    <TypeScriptCompile Include="app\shared\shared.module.ts" />
+    <Compile Include="app\shared\shared.module.js" />
+    <Content Include="app\users\user-form.component.html" />
+    <Content Include="app\users\users.component.html" />
+    <TypeScriptCompile Include="app\users\user-form.component.ts" />
+    <TypeScriptCompile Include="app\users\user.service.ts" />
+    <TypeScriptCompile Include="app\users\user.ts" />
+    <TypeScriptCompile Include="app\users\users.component.ts" />
+    <TypeScriptCompile Include="app\users\users.module.ts" />
+    <TypeScriptCompile Include="app\users\users.routing.ts" />
+    <Compile Include="app\users\user-form.component.js" />
+    <Compile Include="app\users\user.service.js" />
+    <Compile Include="app\users\users.component.js" />
+    <Compile Include="app\users\users.module.js" />
+    <Compile Include="app\users\users.routing.js" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\stylesheets\bootstrap.css" />
+    <Content Include="assets\stylesheets\font-awesome.css" />
+    <Content Include="assets\stylesheets\styles.css" />
+    <TypeScriptCompile Include="typings\underscore\underscore.d.ts" />
+    <Content Include="typings\globals\core-js\typings.json" />
+    <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
+    <Content Include="typings\globals\jasmine\typings.json" />
+    <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
+    <Content Include="typings\globals\node\typings.json" />
+    <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app" />
+    <Folder Include="app\errors\" />
+    <Folder Include="app\master\" />
+    <Folder Include="app\master\items\" />
+    <Folder Include="app\master\languages\" />
+    <Folder Include="app\master\lists\" />
+    <Folder Include="app\master\profiles\" />
+    <Folder Include="app\master\rulebooks\" />
+    <Folder Include="app\security\" />
+    <Folder Include="app\posts" />
+    <Folder Include="app\security\users\" />
+    <Folder Include="app\shared" />
+    <Folder Include="app\shared\components\" />
+    <Folder Include="app\shared\directives\" />
+    <Folder Include="app\shared\helpers\" />
+    <Folder Include="app\shared\pipes\" />
+    <Folder Include="app\shared\validators\" />
+    <Folder Include="app\users" />
+    <Folder Include="assets" />
+    <Folder Include="assets\custom\" />
+    <Folder Include="assets\custom\stylesheets\" />
+    <Folder Include="assets\fonts" />
+    <Folder Include="assets\stylesheets" />
+    <Folder Include="typings" />
+    <Folder Include="typings\globals" />
+    <Folder Include="typings\globals\core-js" />
+    <Folder Include="typings\globals\jasmine" />
+    <Folder Include="typings\globals\node" />
+    <Folder Include="typings\underscore" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
