@@ -59,6 +59,7 @@ export class CommonService {
 
 
     setMode(componentMode: string, urlMode: string) {
+
         var runMode = 'display';
         if (_.contains(['workwith', 'display', 'select'], componentMode)) {
             runMode = componentMode;
@@ -72,6 +73,7 @@ export class CommonService {
     }
 
     setModal(componentModal: string, urlModal: string) {
+        debugger;
         var runModal = 'false';
         if (_.contains(['true', 'false'], componentModal)) {
             runModal = componentModal;

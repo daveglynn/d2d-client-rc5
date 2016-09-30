@@ -14,7 +14,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-          <li>  <a [routerLink]="['/users', { mode: 'workwith', modal: 'true' }]">Users</a></li>
+ 
+          <li>  <a [routerLink]="['/users']" [queryParams]="{ mode: 'workwith', modal: 'false' }">Users workwith</a></li>
+          <li>  <a [routerLink]="['/users']" [queryParams]="{ mode: 'workwith', modal: 'true' }">Users workwith Modal</a></li>
+          <li>  <a [routerLink]="['/users']" [queryParams]="{ mode: 'display', modal: 'false' }">Users display</a></li>
+          <li>  <a [routerLink]="['/users']" [queryParams]="{ mode: 'display', modal: 'true' }">Users display Modal</a></li>
+          <li>  <a [routerLink]="['/users']" [queryParams]="{ mode: 'select', modal: 'false' }">Users select</a></li>
+          <li>  <a [routerLink]="['/users']" [queryParams]="{ mode: 'select', modal: 'true' }">Users select Modal</a></li>
+
             <li><a routerLink="posts" routerLinkActive="active">Posts</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

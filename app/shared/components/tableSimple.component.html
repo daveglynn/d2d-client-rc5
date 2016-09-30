@@ -33,7 +33,7 @@
                             </a>
                         </div>
                         <div *ngIf="modal != 'true'">
-                            <a class="btn btn-primary" [routerLink]="[button.router, { 'id' : object.id, 'modal' :  [modal] }]">
+                            <a class="btn btn-primary"  [routerLink]="[button.router, object.id] ">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                             </a>
                         </div>

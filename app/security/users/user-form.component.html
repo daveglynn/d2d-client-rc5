@@ -1,52 +1,218 @@
-<h1>{{ title }}</h1>
-<div class="row">
-    <div class="col-md-6 well">
-        <form [formGroup]="form" (ngSubmit)="save()">
-            <fieldset>
-                <legend>
-                    User
-                </legend>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input [(ngModel)]="user.name" name="name" #name formControlName="name" type="text" class="form-control">
-                    <div *ngIf="name.touched && !name.valid" class="alert alert-danger">
-                        Name is required.
+    <!-- these two lines are required for Select Modal view-->
+<div *ngIf="modal === 'true'" class="backdrop" [ngStyle]="{'display': modalDisplay}"></div>
+<div class={{modalClass}} tabindex="-1" role="dialog" [ngStyle]="{'display': allDisplay}">
+    <div class="container">
+        <div class="myaccordion">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{title}}</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-5 well">
+                                    <form [formGroup]="form" (ngSubmit)="save()">
+                                        <fieldset [disabled]="(action === 'view' || action === 'delete')">
+                                            <div class="form-group">
+                                                <label>User Status</label>
+                                                <div class="btn-group btn-group-horizontal" data-toggle="buttons">
+                                                    <label class="btn active">
+                                                        <input type="radio" [ngModel]="{checked: user.active == '1'}" name='active' value="1" (change)="user.active=$event.target.value"><i class="fa fa-circle-o fa-1.75x"></i><i class="fa fa-dot-circle-o fa-1.75x"></i> <span>  Active</span>
+                                                    </label>
+                                                    <label class="btn active ">
+                                                        <input type="radio" [ngModel]="{checked: user.active == '0'}" name='active' value="0" (change)="user.active=$event.target.value"><i class="fa fa-circle-o fa-1.75x"></i><i class="fa fa-dot-circle-o fa-1.75x"></i><span> Disabled</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>First Name</label>
+                                                <input [(ngModel)]="user.firstName"   #firstName formControlName="firstName" type="text" class="form-control">
+                                            <div *ngIf="(firstName.touched || firstName.dirty  || !firstName.pristine ) && firstName.errors">
+                                                    <div *ngIf="firstName.errors.required || firstName.errors.isEmpty" class="alert alert-danger">
+                                                        First name is required
+                                                    </div>
+                                                    <div *ngIf="firstName.errors.outOfRange50" class="alert alert-danger">
+                                                        Cannot be greater than 50 characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Last Name</label>
+                                                <input [(ngModel)]="user.lastName" type="text" id="lastName" name="lastName" class="form-control" ngControl="lastName" #lastName formControlName="lastName" placeholder="Required" [disabled]="lastName_disabled" focus>
+                                                <div *ngIf="(lastName.touched || lastName.dirty  || !lastName.pristine ) && lastName.errors">
+                                                    <div *ngIf="lastName.errors.required  || lastName.errors.isEmpty" class="alert alert-danger">
+                                                        Last name is required
+                                                    </div>
+                                                    <div *ngIf="lastName.errors.outOfRange50" class="alert alert-danger">
+                                                        Cannot be greater than 50 characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input [(ngModel)]="user.email" type="text" id="email" name="email" class="form-control" ngControl="email" #email formControlName="email" placeholder="Required" [disabled]="email_disabled" focus>
+                                                <div *ngIf="email.control.pending">Checking for Uniqueness...</div>
+                                                <div *ngIf="(email.touched || email.dirty  || !email.pristine ) && email.errors">
+                                                    <div *ngIf="email.errors.required || email.errors.isEmpty" class="alert alert-danger">
+                                                        Email is required
+                                                    </div>
+                                                    <div *ngIf="email.errors.outOfRange50" class="alert alert-danger">
+                                                        Email must not be greater than 50 characters.
+                                                    </div>
+                                                    <div *ngIf="email.errors.containsSpace" class="alert alert-danger">
+                                                        Email cannot contain space
+                                                    </div>
+                                                    <div *ngIf="email.errors.invalidEmailAddress" class="alert alert-danger">
+                                                        Invalid Email Address
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="action === 'add'">
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input [(ngModel)]="user.password" type="password" id="password" name="password" class="form-control" ngControl="password" #password formControlName="password" placeholder="Required"  focus>
+                                                    <div *ngIf="(password.touched || password.dirty  || !password.pristine ) && password.errors">
+                                                        <div *ngIf="password.errors.required || password.errors.isEmpty" class="alert alert-danger">
+                                                            Password is required
+                                                        </div>
+                                                        <div *ngIf="password.errors.outOfRange50" class="alert alert-danger">
+                                                            Email must not be greater than 50 characters.
+                                                        </div>
+                                                        <div *ngIf="password.errors.containsSpace" class="alert alert-danger">
+                                                            Password cannot contain a space
+                                                        </div>
+                                                        <div *ngIf="password.errors.invalidPassword" class="alert alert-danger">
+                                                            Must be between 6 to 10 characters containing One Uppercase, One Lowercase and One Digit
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Language</label>
+                                                <select [(ngModel)]="user.languageId" id="languageId" name="languageId" class="form-control" ngControl="languageId" #languageId formControlName="languageId" [disabled]="languageId_disabled" focus>
+                                                    <option *ngFor="let language of languages" value="{{ language.id }}">
+                                                        {{ language.name }}
+                                                    </option>
+                                                </select>
+                                                <div *ngIf="(languageId.touched || languageId.dirty  || !languageId.pristine ) && languageId.errors" class="alert alert-danger">
+                                                    <div *ngIf="languageId.errors.required || languageId.errors.isEmpty" class="alert alert-danger">
+                                                        Language is required
+                                                    </div>
+                                                    <div *ngIf="languageId.errors.dropDownNotSelected" class="alert alert-danger">
+                                                        Language cannot be (None).
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <input [(ngModel)]="user.phone" type="text" id="phone" name="phone" class="form-control" ngControl="phone" #phone formControlName="phone" placeholder="Required" [disabled]="phone_disabled" focus>
+                                                <div *ngIf="(phone.touched || phone.dirty  || !phone.pristine ) && phone.errors">
+                                                    <div *ngIf="phone.errors.outOfRange50" class="alert alert-danger">
+                                                        Last name must not be greater than 50 characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Enabled From</label>
+                                                <input [(ngModel)]="user.enabledFrom" type="datetime-local" id="enabledFrom" name="enabledFrom" class="form-control" ngControl="enabledFrom" #enabledFrom formControlName="enabledFrom" placeholder="Required" [disabled]="enabledFrom_disabled" focus>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Enabled To</label>
+                                                <input [(ngModel)]="user.enabledTo" type="datetime-local" id="enabledTo" name="enabledTo" class="form-control" ngControl="enabledTo" #enabledTo formControlName="enabledTo" placeholder="Required" [disabled]="enabledTo_disabled" focus>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset ngControlGroup="address" [disabled]="(action === 'view' || action === 'delete')">
+                                            <legend>Address</legend>
+                                            <div class="form-group">
+                                                <label>Address Line1</label>
+                                                <input [(ngModel)]="user.addressLine1" type="text" id="addressLine1" name="addressLine1" class="form-control" ngControl="addressLine1" #addressLine1 formControlName="addressLine1" placeholder="Required" [disabled]="addressLine1_disabled" focus>
+                                                <div *ngIf="(addressLine1.touched || addressLine1.dirty  || !addressLine1.pristine ) && addressLine1.errors">
+                                                    <div *ngIf="addressLine1.errors.outOfRange50" class="alert alert-danger">
+                                                        Address Line1 must not be greater than 50 characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Address Line2</label>
+                                                <input [(ngModel)]="user.addressLine2" type="text" id="addressLine2" name="addressLine2" class="form-control" ngControl="addressLine2" #addressLine2 formControlName="addressLine2" placeholder="Required" [disabled]="addressLine2_disabled" focus>
+                                                <div *ngIf="(addressLine2.touched || addressLine2.dirty  || !addressLine2.pristine ) && addressLine2.errors">
+                                                    <div *ngIf="addressLine2.errors.outOfRange50" class="alert alert-danger">
+                                                        Address Line2 must not be greater than 50 characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Address Line3</label>
+                                                <input [(ngModel)]="user.addressLine3" type="text" id="addressLine3" name="addressLine3" class="form-control" ngControl="addressLine3" #addressLine3 formControlName="addressLine3" placeholder="Required" [disabled]="addressLine3_disabled" focus>
+                                                 <div *ngIf="(addressLine3.touched || addressLine3.dirty  || !addressLine3.pristine ) && addressLine3.errors">
+                                                    <div *ngIf="addressLine3.errors.outOfRange50" class="alert alert-danger">
+                                                        Address Line3 must not be greater than 50 characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Address Line4</label>
+                                                <input [(ngModel)]="user.addressLine4" type="text" id="addressLine4" name="addressLine4" class="form-control" ngControl="addressLine4" #addressLine4 formControlName="addressLine4" placeholder="Required" [disabled]="addressLine4_disabled" focus>
+                                                <div *ngIf="(addressLine4.touched || addressLine4.dirty  || !addressLine4.pristine ) && addressLine4.errors">
+                                                    <div *ngIf="addressLine4.errors.outOfRange50" class="alert alert-danger">
+                                                        Address Line4 must not be greater than 50 characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+
+                                        <div *ngIf="(action === 'add')">
+                                            <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
+                                                <span class="glyphicon glyphicon-ok-circle"></span> Create User
+                                            </button>
+                                            <button type="button" class="btn btn-primary"
+                                                    (click)="cancel()">
+                                                <span class="glyphicon glyphicon-remove-circle"></span> Cancel
+                                            </button>
+                                            <spinner [visible]="userLoading"></spinner>
+                                        </div>
+                                        <div *ngIf="(action === 'edit')">
+                                            <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
+                                                <span class="glyphicon glyphicon-ok-circle"></span> Update User
+                                            </button>
+                                            <button type="button" class="btn btn-primary"
+                                                    (click)="cancel()">
+                                                <span class="glyphicon glyphicon-remove-circle"></span> Cancel
+                                            </button>
+                                            <spinner [visible]="userLoading"></spinner>
+                                        </div>
+                                        <div *ngIf="(action === 'delete')">
+                                            <button type="submit" class="btn btn-primary">
+                                                <span class="glyphicon glyphicon-ok-circle"></span> Delete User
+                                            </button>
+                                            <button type="button" class="btn btn-primary"
+                                                    (click)="cancel()">
+                                                <span class="glyphicon glyphicon-remove-circle"></span> Cancel
+                                            </button>
+                                            <spinner [visible]="userLoading"></spinner>
+                                        </div>
+                                        <div *ngIf="(action === 'view')">
+                                            <button type="button" class="btn btn-primary"
+                                                    (click)="cancel()">
+                                                <span class="glyphicon glyphicon-remove-circle"></span> Cancel
+                                            </button>
+                                            <spinner [visible]="userLoading"></spinner>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input [(ngModel)]="user.email" #email formControlName="email" type="text" class="form-control">
-                    <div *ngIf="email.touched && !email.valid" class="alert alert-danger">
-                        Please type a valid email.
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Phone</label>
-                    <input [(ngModel)]="user.phone" formControlName="phone" type="text" class="form-control">
-                </div>
-            </fieldset>
-            <fieldset formGroupName="address">
-                <legend>Address</legend>
-                    <div class="form-group">
-                        <label>Street</label>
-                        <input [(ngModel)]="user.address.street" formControlName="street" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Suite</label>
-                        <input [(ngModel)]="user.address.suite" formControlName="suite" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>City</label>
-                        <input [(ngModel)]="user.address.city" formControlName="city" type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>ZipCode</label>
-                        <input [(ngModel)]="user.address.zipcode" formControlName="zipcode" type="text" class="form-control">
-                    </div>
-            </fieldset>
-            <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
-                Save
-            </button>
-        </form>
+            </div>
+        </div>
     </div>
 </div>

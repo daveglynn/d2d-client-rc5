@@ -4,7 +4,7 @@ import { ErrorService } from "../.././errors/error.service";
 import { ProfileService } from '../../master/profiles/profile.service';
 import { LanguageService } from '../../master/languages/language.service';
 import { CommonService } from   '../../shared/helpers/common.service';
-import { ActivatedRoute } from '@angular/router';
+import {Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -42,7 +42,8 @@ export class UsersComponent implements OnInit {
         private _profileService: ProfileService,
         private _languageService: LanguageService,
         private _commonService: CommonService,
-        private _router: ActivatedRoute,
+        private _router: Router,
+        private _activeroute: ActivatedRoute,
         private _location: Location) {
 	}
 
@@ -55,7 +56,7 @@ export class UsersComponent implements OnInit {
     } 
 
     private setupForm() {
-        debugger;
+
         //set modal
         this.modalProcessing()
 
@@ -135,13 +136,14 @@ export class UsersComponent implements OnInit {
     }
 
     private modalProcessing() {
-        ;
-        this._router.params.subscribe(params => {
-            this.mode = this._commonService.setMode(this.InputMode, params['mode'])
-            this.modal = this._commonService.setModal(this.InputModal, params['modal'])
+        debugger;
+
+        this._router.routerState.queryParams.subscribe(params => {
+                this.mode = this._commonService.setMode(this.InputMode, params['mode'])
+                this.modal = this._commonService.setModal(this.InputModal, params['modal'])
         });
-        //this.mode = this._commonService.setMode(this.InputMode, this._router.root.currentInstruction.component.params['mode'])
-       // this.modal = this._commonService.setModal(this.InputModal, this._router.root.currentInstruction.component.params['modal'])
+        //this.mode = this._commonService.setMode(this.InputMode, this._activeroute.root.currentInstruction.component.params['mode'])
+       // this.modal = this._commonService.setModal(this.InputModal, this._activeroute.root.currentInstruction.component.params['modal'])
    
         if (this.modal === "true") {
             this.modalClass = "modal"
