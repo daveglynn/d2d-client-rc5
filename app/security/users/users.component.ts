@@ -4,7 +4,7 @@ import { ErrorService } from "../.././errors/error.service";
 import { ProfileService } from '../../master/profiles/profile.service';
 import { LanguageService } from '../../master/languages/language.service';
 import { CommonService } from   '../../shared/helpers/common.service';
-import {Router, ActivatedRoute } from '@angular/router';
+import {Router  } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -43,7 +43,7 @@ export class UsersComponent implements OnInit {
         private _languageService: LanguageService,
         private _commonService: CommonService,
         private _router: Router,
-        private _activeroute: ActivatedRoute,
+ 
         private _location: Location) {
 	}
 
@@ -103,7 +103,7 @@ export class UsersComponent implements OnInit {
             {
                 action: 'view',
                 display: 'View',
-                router: 'ViewUser'
+                router: 'view'
             }
         );
 
@@ -112,12 +112,12 @@ export class UsersComponent implements OnInit {
             this.buttons.push({
                 action: 'edit',
                 display: 'Edit',
-                router: 'EditUser'
+                router: '/users'
             });
             this.buttons.push({
                 action: 'delete',
                 display: 'Delete',
-                router: 'DeleteUser'
+                router: 'delete'
             }
             );
         }
@@ -142,9 +142,7 @@ export class UsersComponent implements OnInit {
                 this.mode = this._commonService.setMode(this.InputMode, params['mode'])
                 this.modal = this._commonService.setModal(this.InputModal, params['modal'])
         });
-        //this.mode = this._commonService.setMode(this.InputMode, this._activeroute.root.currentInstruction.component.params['mode'])
-       // this.modal = this._commonService.setModal(this.InputModal, this._activeroute.root.currentInstruction.component.params['modal'])
-   
+  
         if (this.modal === "true") {
             this.modalClass = "modal"
             this.modalDisplay = 'block'

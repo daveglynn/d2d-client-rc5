@@ -29,7 +29,7 @@ export class UserService {
             parms['profileId'] = filter.profileId;
         };
       		if (filter && filter.active) {
-            parms['active'] = filter.active;
+                    parms['active'] = filter.active;
         };
         debugger;
         const headers = new Headers({ 'Content-Type': 'application/json' });
@@ -39,7 +39,7 @@ export class UserService {
     }
     
     getUserById(userId) {
-        return this._http.get(this._url + "/user/" + userId, { search: this._commonService.getTokenAsParm() })
+        return this._http.get(this._url + "/user/" + userId  )
             .map(res => res.json())
             .catch(error => Observable.throw(error.json()))
     }

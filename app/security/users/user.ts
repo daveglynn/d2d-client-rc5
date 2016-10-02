@@ -22,12 +22,12 @@ export class User {
         , public firstName?: string
         , public lastName?: string
         , public phone?: string
+        , public enabledFrom?: string
+        , public enabledTo?: string
         , public addressLine1?: string
         , public addressLine2?: string
         , public addressLine3?: string
         , public addressLine4?: string
-        , public enabledFrom?: string
-        , public enabledTo?: string
     ) { }
 }
 

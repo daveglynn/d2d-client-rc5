@@ -70,8 +70,9 @@ export class UserFormComponent implements OnInit {
  
 
     // create a new instance 
-    user = new User(null, null, null, null, true, null, null, null, null, null, null, null, null, null, null);
 
+    user = new User(null, null, null, null, true, null, null, null, null, null, null, null, null, null, null);
+    
 
 	constructor(
         fb: FormBuilder,
@@ -85,7 +86,7 @@ export class UserFormComponent implements OnInit {
         private _commonService: CommonService 
     ) {
 
-        debugger;
+
         // determine what action the form is in
         if (this._router.url.toLowerCase.name == "adduser") {
             this.action = "add";
@@ -179,6 +180,7 @@ export class UserFormComponent implements OnInit {
 	}
 
     ngOnInit() {
+
         this.setupForm();
 
     }
@@ -188,10 +190,14 @@ export class UserFormComponent implements OnInit {
         //set modal
         this.modalProcessing()
 
-        var id = this._route.params.subscribe(params => {
-            var id = +params["id"];
-        });
-
+        var id = this._route.snapshot.params['id'];
+        debugger;
+       
+        //var id = this._route.params.subscribe(params => {
+        //    console.log(params["id"]);
+        //    var id = +params["id"];
+       // });
+   
         if (this.action === 'edit') {
             this.title = 'Edit User'
         } else if (this.action === 'view') {
@@ -213,6 +219,7 @@ export class UserFormComponent implements OnInit {
         //this.addressLine3_disabled: boolean = false;
         //this. addressLine4_disabled: boolean = false;
         debugger;
+    
         //get data if requested
         if (!id)
             return;
@@ -314,7 +321,7 @@ export class UserFormComponent implements OnInit {
     }
 
     handleError(process, error: any) {
-        debugger;
+ 
         this.userLoading = false;
         // this is not an error , but delete request is throwing it. Angular bug
         // therefore treat it as a success
@@ -331,7 +338,7 @@ export class UserFormComponent implements OnInit {
     }
 
     handleData(process, data: any) {
-        debugger;
+ 
         this.userLoading = false;
         console.log("handle data");
         console.log(data);
@@ -352,7 +359,7 @@ export class UserFormComponent implements OnInit {
     }
 
     handleSuccess(process) {
-        debugger;
+       
         this.userLoading = false;
         console.log("handle success");
         // Ideally, here we'd want:

@@ -1,4 +1,4 @@
-﻿ <div style="overflow:auto;height:50%;">
+﻿<div style="overflow:auto;height:50%;">
     <table class="table table-hover table-striped table-sortable">
         <thead>
             <tr>
@@ -33,18 +33,19 @@
                             </a>
                         </div>
                         <div *ngIf="modal != 'true'">
-                            <a class="btn btn-primary"  [routerLink]="[button.router, object.id] ">
+                            <a class="btn btn-primary" [routerLink]="[button.router, object.id]">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                             </a>
                         </div>
                     </div>
                     <div *ngIf="button.action == 'edit'">
-                        <a class="btn btn-primary" [routerLink]="[button.router, { 'id' : object.id }]">
-                            <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                    </div>
+         
+                            <a class="btn btn-primary" [routerLink]="[button.router, object.id]">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+</div>
                     <div *ngIf="button.action == 'delete'">
-                        <button class="btn btn-danger" [routerLink]="[button.router, { 'id' : object.id }]">
+                        <button class="btn btn-danger" [routerLink]="[button.router, object.id]">
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>
                     </div>
