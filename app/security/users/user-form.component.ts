@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup }    from '@angular/forms';
-import {   Validators } from '@angular/common';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+//import {   Validators } from '@angular/common';
 import { Router, ActivatedRoute }                from '@angular/router';
 import { Control } from "@angular/common";
 
@@ -86,97 +86,33 @@ export class UserFormComponent implements OnInit {
         private _commonService: CommonService 
     ) {
 
-
-        // determine what action the form is in
-        if (this._router.url.toLowerCase.name == "adduser") {
-            this.action = "add";
-        } else if (this._router.url.toLowerCase.name === "viewuser") {
-            this.action = "view";
-        } else if (this._router.url.toLowerCase.name === "edituser") {
-            this.action = "edit";
-        } else if (this._router.url.toLowerCase.name === "deleteuser") {
-            this.action = "delete";
-        } else this.action = "";
-
-
-
-        // set up the field validators
-        if ((this.action === "add") || (this.action === "edit")) {
- 
-        }
-
-        if (this.action === "add") {
- 
-        }
-
-        if ((this.action === "view") || (this.action === "delete")) {
-
- 
-        }
-
+        this.action = this._commonService.getAction(this._route.snapshot.routeConfig.path);
 
         // if (this.action === "add") {
         //     this.languages.push(new DropDown(-1, "(None)"));
         //     this.user.languageId = -1;
         //  
 
- 
         // set up the form design
         this.form = fb.group({
             active: [''],
-            firstName: Validators.compose([
-                Validators.required,
-                ClientValidators.isEmpty,
-                ClientValidators.outOfRange50
-            ]),
-            lastName: Validators.compose([
-                Validators.required,
-                ClientValidators.isEmpty,
-                ClientValidators.outOfRange50
-            ]),
-            email: Validators.compose([
-                Validators.required,
-                ClientValidators.isEmpty,
-                ClientValidators.containsSpace,
-                ClientValidators.invalidEmailAddress,
-                ClientValidators.outOfRange50
-            ]),
-            password: Validators.compose([
-                Validators.required,
-                ClientValidators.isEmpty,
-                ClientValidators.outOfRange50,
-                ClientValidators.containsSpace,
-                ClientValidators.invalidPassword
-            ]),
-            profileId: Validators.compose([
-                ClientValidators.outOfRange50
-            ]),
-            languageId: Validators.compose([
-                Validators.required,
-                ClientValidators.isEmpty,
-                ClientValidators.dropDownNotSelected
-            ]),
-            phone: Validators.compose([
-                ClientValidators.outOfRange50
-            ]),
+            firstName: ['', [Validators.required,ClientValidators.outOfRange50]],
+            lastName: [''],
+            email: [''],
+            password: [''],
+            profileId: [''],
+            languageId: [''],
+            phone: [''],
             enabledFrom: [''],
             enabledTo: [''],
-            address: fb.group({
-                addressLine1: Validators.compose([
-                    ClientValidators.outOfRange50
-                ]),
-                addressLine2: Validators.compose([
-                    ClientValidators.outOfRange50
-                ]),
-                addressLine3: Validators.compose([
-                    ClientValidators.outOfRange50
-                ]),
-                addressLine4: Validators.compose([
-                    ClientValidators.outOfRange50
-                ])
-            })
+            addressLine1: [''],
+            addressLine2: [''],
+            addressLine3: [''],
+            addressLine4: ['']
+ 
 
         });
+
 	}
 
     ngOnInit() {
@@ -191,13 +127,12 @@ export class UserFormComponent implements OnInit {
         this.modalProcessing()
 
         var id = this._route.snapshot.params['id'];
-        debugger;
-       
+        
         //var id = this._route.params.subscribe(params => {
         //    console.log(params["id"]);
         //    var id = +params["id"];
        // });
-   
+
         if (this.action === 'edit') {
             this.title = 'Edit User'
         } else if (this.action === 'view') {
@@ -218,7 +153,6 @@ export class UserFormComponent implements OnInit {
         //this.addressLine2_disabled: boolean = false;
         //this.addressLine3_disabled: boolean = false;
         //this. addressLine4_disabled: boolean = false;
-        debugger;
     
         //get data if requested
         if (!id)

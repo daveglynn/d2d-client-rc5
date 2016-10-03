@@ -73,7 +73,7 @@ export class CommonService {
     }
 
     setModal(componentModal: string, urlModal: string) {
-        debugger;
+
         var runModal = 'false';
         if (_.contains(['true', 'false'], componentModal)) {
             runModal = componentModal;
@@ -90,6 +90,22 @@ export class CommonService {
         var d = new Date(date);
         return d.toISOString().split('.')[0].toString();
     }
-   
+
+    getAction(path:string) {
+
+        if (path.includes("add")) {
+            return "add";
+        } else if (path.includes("edit")) {
+            return "edit";
+        } else if (path.includes("delete")) {
+            return "delete";
+        } else if (path.includes("view")) {
+            return "view";
+        } else  {
+            return "";
+        }
+
+    }
+    
 
 }

@@ -7,14 +7,25 @@ import { PreventUnsavedChangesGuard } from '../../prevent-unsaved-changes-guard.
 
 export const usersRouting = RouterModule.forChild([
 	{ 
-		path: 'users/new', 
+		path: 'users/add', 
 		component: UserFormComponent,
 		canDeactivate: [ PreventUnsavedChangesGuard ]  
     },
     {
-        path: 'users/:id',
+        path: 'users/view/:id',
         component: UserFormComponent,
         canDeactivate: [PreventUnsavedChangesGuard]
     },
+    {
+        path: 'users/edit/:id',
+        component: UserFormComponent,
+        canDeactivate: [PreventUnsavedChangesGuard]
+    },
+    {
+        path: 'users/delete/:id',
+        component: UserFormComponent,
+        canDeactivate: [PreventUnsavedChangesGuard]
+    },
+
     { path: 'users', component: UsersComponent },
 ]);

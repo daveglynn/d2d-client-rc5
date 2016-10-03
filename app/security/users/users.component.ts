@@ -103,7 +103,7 @@ export class UsersComponent implements OnInit {
             {
                 action: 'view',
                 display: 'View',
-                router: 'view'
+                router: '/users/view'
             }
         );
 
@@ -112,12 +112,12 @@ export class UsersComponent implements OnInit {
             this.buttons.push({
                 action: 'edit',
                 display: 'Edit',
-                router: '/users'
+                router: '/users/edit'
             });
             this.buttons.push({
                 action: 'delete',
                 display: 'Delete',
-                router: 'delete'
+                router: '/users/delete'
             }
             );
         }
@@ -136,7 +136,6 @@ export class UsersComponent implements OnInit {
     }
 
     private modalProcessing() {
-        debugger;
 
         this._router.routerState.queryParams.subscribe(params => {
                 this.mode = this._commonService.setMode(this.InputMode, params['mode'])

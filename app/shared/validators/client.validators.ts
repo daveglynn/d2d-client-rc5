@@ -1,19 +1,20 @@
-import { Control } from '@angular/common';
+import { FormControl } from '@angular/forms';
 
 export class ClientValidators {
 
-    static isEmpty(control: Control) {
-
+    static isEmpty(control: FormControl): { [s: string]: boolean } {
+        debugger;
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
-            if (control.value.trim() == "")
+
+             if (control.value.trim() == "")
                 return { isEmpty: true };
         }
         return null;
 
     }
 
-    static containsSpace(control: Control) {
-
+    static containsSpace(control: FormControl): { [s: string]: boolean } {
+        debugger;
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value.indexOf(' ') >= 0)
                 return { containsSpace: true };
@@ -22,8 +23,8 @@ export class ClientValidators {
 
     }
 
-    static invalidEmailAddress(control: Control) {
-
+    static invalidEmailAddress(control: FormControl): { [s: string]: boolean } {
+        debugger;
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value.trim() != "") {
                 if (!control.value.match("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")) {
@@ -35,8 +36,8 @@ export class ClientValidators {
 
     }
 
-    static invalidPassword(control: Control) {
-
+    static invalidPassword(control: FormControl): { [s: string]: boolean } {
+        debugger;
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value.trim() != "") {
                 if (!control.value.match("^.{6,10}$")) {
@@ -57,11 +58,12 @@ export class ClientValidators {
 
     }
 
-    static outOfRange50(control: Control) {
 
+    static outOfRange50(control: FormControl): { [s: string]: boolean } {
+        debugger;
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value != "") {
-                if (control.value.length > 50) {
+                if (control.value.length > 5) {
                     return { 'outOfRange50': true };
                 }
             }
@@ -70,7 +72,7 @@ export class ClientValidators {
 
     }
 
-    static dropDownNotSelected(control: Control) {
+    static dropDownNotSelected(control: FormControl): { [s: string]: boolean } {
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value != "") {
                 if ((control.value == -1) || (control.value == null)) {
@@ -81,8 +83,8 @@ export class ClientValidators {
         return null;
 
     }
-    static invalidNumberRange(control: Control) {
-
+    static invalidNumberRange(control: FormControl): { [s: string]: boolean } {
+        debugger;
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value > 2147483647 || control.value < 0) {
                 return { 'invalidNumberRange': true };
@@ -92,7 +94,7 @@ export class ClientValidators {
 
     }
 
-    static invalidNumber(control: Control): any {
+    static invalidNumber(control: FormControl): { [s: string]: boolean } {
 
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (isNaN(parseFloat(control.value)) || isFinite(control.value)) {

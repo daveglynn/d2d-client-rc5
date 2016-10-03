@@ -17,15 +17,14 @@
                                     <form [formGroup]="form" (ngSubmit)="save()">
                                         <fieldset [disabled]="(action === 'view' || action === 'delete')">
 
-
                                             <div class="form-group">
                                                 <label>First Name</label>
                                                 <input [(ngModel)]="user.firstName" #firstName formControlName="firstName" type="text" name="firstName" class="form-control" id="firstName" placeholder="Required" [disabled]="lastName_disabled" focus>
-                                                <div *ngIf="(firstName.touched || firstName.dirty  || !firstName.pristine ) && firstName.errors">
-                                                    <div *ngIf="firstName.errors.required || firstName.errors.isEmpty" class="alert alert-danger">
+                                                <div *ngIf="form.controls.firstName.touched  && form.controls.firstName.errors">
+                                                    <div *ngIf="form.controls.firstName.errors.required" class="alert alert-danger">
                                                         First name is required
                                                     </div>
-                                                    <div *ngIf="firstName.errors.outOfRange50" class="alert alert-danger">
+                                                    <div *ngIf="form.controls.firstName.errors.outOfRange50" class="alert alert-danger">
                                                         Cannot be greater than 50 characters.
                                                     </div>
                                                 </div>
@@ -99,7 +98,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Phone</label>
-                                                <input [(ngModel)]="user.phone"  type="text" id="phone" name="phone" class="form-control" #phone formControlName="phone" placeholder="Required" [disabled]="phone_disabled" focus>
+                                                <input [(ngModel)]="user.phone" type="text" id="phone" name="phone" class="form-control" #phone formControlName="phone" placeholder="Required" [disabled]="phone_disabled" focus>
                                                 <div *ngIf="(phone.touched || phone.dirty  || !phone.pristine ) && phone.errors">
                                                     <div *ngIf="phone.errors.outOfRange50" class="alert alert-danger">
                                                         Last name must not be greater than 50 characters.
@@ -117,11 +116,11 @@
 
                                         </fieldset>
 
-                                        <fieldset formGroupName="address" [disabled]="(action === 'view' || action === 'delete')">
+                                        <fieldset   [disabled]="(action === 'view' || action === 'delete')">
                                             <legend>Address</legend>
                                             <div class="form-group">
                                                 <label>Address Line1</label>
-                                                <input [(ngModel)]="user.addressLine1" type="text" id="addressLine1" name="addressLine1" class="form-control"#addressLine1 formControlName="addressLine1"  placeholder="Required" [disabled]="addressLine1_disabled" focus>
+                                                <input [(ngModel)]="user.addressLine1" type="text" id="addressLine1" name="addressLine1" class="form-control" #addressLine1 formControlName="addressLine1" placeholder="Required" [disabled]="addressLine1_disabled" focus>
                                                 <div *ngIf="(addressLine1.touched || addressLine1.dirty  || !addressLine1.pristine ) && addressLine1.errors">
                                                     <div *ngIf="addressLine1.errors.required || addressLine1.errors.isEmpty" class="alert alert-danger">
                                                         Address Line 1 is required
@@ -142,7 +141,7 @@
                                                         Cannot be greater than 50 characters.
                                                     </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div class="form-group">
                                                 <label>Address Line3</label>
                                                 <input [(ngModel)]="user.addressLine3" type="text" id="addressLine3" name="addressLine3" class="form-control" #addressLine3 formControlName="addressLine3" placeholder="Required" [disabled]="addressLine3_disabled" focus>
@@ -154,7 +153,7 @@
                                                         Cannot be greater than 50 characters.
                                                     </div>
                                                 </div>
-                                            </div>  
+                                            </div>
                                             <div class="form-group">
                                                 <label>Address Line4</label>
                                                 <input [(ngModel)]="user.addressLine4" type="text" id="addressLine4" name="addressLine4" class="form-control" #addressLine4 formControlName="addressLine4" placeholder="Required" [disabled]="addressLine4_disabled" focus>
@@ -166,7 +165,7 @@
                                                         Cannot be greater than 50 characters.
                                                     </div>
                                                 </div>
-                                            </div>                                          
+                                            </div>
                                         </fieldset>
 
                                         <div *ngIf="(action === 'add')">

@@ -1,0 +1,2 @@
+C:\SkyDrive\Lenovo\Olympus\Products\d2d\system\client-rc5\obj\Debug\client-rc5.njsprojResolveAssemblyReference.cache
+C:\SkyDrive\Lenovo\Olympus\Products\d2d\system\client-rc5\bin\Microsoft.NodejsTools.WebRole.dll
