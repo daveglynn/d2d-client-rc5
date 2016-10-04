@@ -63,7 +63,7 @@ export class ClientValidators {
         debugger;
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value != "") {
-                if (control.value.length > 5) {
+                if (control.value.length > 50) {
                     return { 'outOfRange50': true };
                 }
             }

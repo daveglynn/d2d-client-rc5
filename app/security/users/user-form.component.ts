@@ -1,28 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-//import {   Validators } from '@angular/common';
 import { Router, ActivatedRoute }                from '@angular/router';
 import { Control } from "@angular/common";
-
 import { ClientValidators }                       from '../../shared/validators/client.validators';
 import { UserService }                           from './user.service';
 import { User }                                  from './user';
 import { DropDown} from "../../shared/helpers/dropdown";
-
 import { Location } from '@angular/common';
-
 import { CommonService } from   '../../shared/helpers/common.service';
 import { ProfileService } from '../../master/profiles/profile.service';
 import { LanguageService } from '../../master/languages/language.service';
 import { ErrorService } from "../.././errors/error.service";
-
 
 @Component({
     templateUrl: 'app/security/users/user-form.component.html'
 })
 
 export class UserFormComponent implements OnInit {
-    
+
     // interface to other components
     @Input() InputMode: string;
     @Input() InputModal: string;
@@ -60,21 +55,17 @@ export class UserFormComponent implements OnInit {
     profileId_disabled: boolean = false;
     languageId_disabled: boolean = false;
     phone_disabled: boolean = false;
-    addressLine1_disabled: boolean = true;
+    addressLine1_disabled: boolean = false;
     addressLine2_disabled: boolean = false;
     addressLine3_disabled: boolean = false;
     addressLine4_disabled: boolean = false;
     enabledFrom_disabled: boolean = false;
     enabledTo_disabled: boolean = false;
 
- 
-
     // create a new instance 
-
     user = new User(null, null, null, null, true, null, null, null, null, null, null, null, null, null, null);
-    
 
-	constructor(
+    constructor(
         fb: FormBuilder,
         private _router: Router,
         private _route: ActivatedRoute,
@@ -83,55 +74,22 @@ export class UserFormComponent implements OnInit {
         private _languageService: LanguageService,
         private _errorService: ErrorService,
         private _location: Location,
-        private _commonService: CommonService 
+        private _commonService: CommonService
     ) {
-
         this.action = this._commonService.getAction(this._route.snapshot.routeConfig.path);
-
-        // if (this.action === "add") {
-        //     this.languages.push(new DropDown(-1, "(None)"));
-        //     this.user.languageId = -1;
-        //  
-
-        // set up the form design
-        this.form = fb.group({
-            active: [''],
-            firstName: ['', [Validators.required,ClientValidators.outOfRange50]],
-            lastName: [''],
-            email: [''],
-            password: [''],
-            profileId: [''],
-            languageId: [''],
-            phone: [''],
-            enabledFrom: [''],
-            enabledTo: [''],
-            addressLine1: [''],
-            addressLine2: [''],
-            addressLine3: [''],
-            addressLine4: ['']
+        this.setupValidators(fb)
+    }
  
-
-        });
-
-	}
-
     ngOnInit() {
 
         this.setupForm();
-
     }
 
     private setupForm() {
 
-        //set modal
         this.modalProcessing()
 
         var id = this._route.snapshot.params['id'];
-        
-        //var id = this._route.params.subscribe(params => {
-        //    console.log(params["id"]);
-        //    var id = +params["id"];
-       // });
 
         if (this.action === 'edit') {
             this.title = 'Edit User'
@@ -153,7 +111,7 @@ export class UserFormComponent implements OnInit {
         //this.addressLine2_disabled: boolean = false;
         //this.addressLine3_disabled: boolean = false;
         //this. addressLine4_disabled: boolean = false;
-    
+
         //get data if requested
         if (!id)
             return;
@@ -165,6 +123,46 @@ export class UserFormComponent implements OnInit {
             () => this.handleSuccess('getUserById')
             );
 
+    }
+
+    private setupValidators(fb) {
+
+        if (this.action === "add") {
+            this.form = fb.group({
+                active: [''],
+                firstName: ['', [Validators.required, ClientValidators.outOfRange50]],
+                lastName: ['', [Validators.required, ClientValidators.outOfRange50]],
+                email: ['', [Validators.required, ClientValidators.containsSpace, ClientValidators.invalidEmailAddress]],
+                password: ['', [Validators.required, ClientValidators.outOfRange50, ClientValidators.containsSpace, ClientValidators.invalidPassword]],
+                profileId: [''],
+                languageId: [''],
+                phone: ['', [ClientValidators.outOfRange50]],
+                enabledFrom: [''],
+                enabledTo: [''],
+                addressLine1: ['', [ClientValidators.outOfRange50]],
+                addressLine2: ['', [ClientValidators.outOfRange50]],
+                addressLine3: ['', [ClientValidators.outOfRange50]],
+                addressLine4: ['', [ClientValidators.outOfRange50]]
+
+            });
+        } else {
+            this.form = fb.group({
+                active: [''],
+                firstName: ['', [Validators.required, ClientValidators.outOfRange50]],
+                lastName: ['', [Validators.required, ClientValidators.outOfRange50]],
+                email: ['', [Validators.required, ClientValidators.containsSpace, ClientValidators.invalidEmailAddress]],
+                password: [''],
+                profileId: [''],
+                languageId: [''],
+                phone: ['', [ClientValidators.outOfRange50]],
+                enabledFrom: [''],
+                enabledTo: [''],
+                addressLine1: ['', [ClientValidators.outOfRange50]],
+                addressLine2: ['', [ClientValidators.outOfRange50]],
+                addressLine3: ['', [ClientValidators.outOfRange50]],
+                addressLine4: ['', [ClientValidators.outOfRange50]]
+            });
+        };
     }
 
     private modalProcessing() {
@@ -249,13 +247,12 @@ export class UserFormComponent implements OnInit {
         }
     }
 
-
     cancel() {
         this._router.navigate(['Users']);
     }
 
     handleError(process, error: any) {
- 
+
         this.userLoading = false;
         // this is not an error , but delete request is throwing it. Angular bug
         // therefore treat it as a success
@@ -272,7 +269,7 @@ export class UserFormComponent implements OnInit {
     }
 
     handleData(process, data: any) {
- 
+
         this.userLoading = false;
         console.log("handle data");
         console.log(data);
@@ -293,7 +290,7 @@ export class UserFormComponent implements OnInit {
     }
 
     handleSuccess(process) {
-       
+
         this.userLoading = false;
         console.log("handle success");
         // Ideally, here we'd want:
