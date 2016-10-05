@@ -39,7 +39,6 @@
     <Content Include="app\security\users\user.service.js.map" />
     <Content Include="app\security\users\users.component.html" />
     <Content Include="app\security\users\users.component.js.map" />
-    <Content Include="app\security\users\users.module.js.map" />
     <Content Include="app\security\users\users.routing.js.map" />
     <Content Include="app\shared\components\tableSimple.component.html" />
     <Content Include="app\shared\components\tableSimple.component.js.map" />
@@ -77,7 +76,6 @@
     <Compile Include="app\security\users\user.js" />
     <Compile Include="app\security\users\user.service.js" />
     <Compile Include="app\security\users\users.component.js" />
-    <Compile Include="app\security\users\users.module.js" />
     <Compile Include="app\security\users\users.routing.js" />
     <Compile Include="app\shared\components\tableSimple.component.js" />
     <Compile Include="app\shared\directives\focus.directive.js" />
@@ -122,7 +120,7 @@
     <TypeScriptCompile Include="app\security\users\user.service.ts" />
     <TypeScriptCompile Include="app\security\users\user.ts" />
     <TypeScriptCompile Include="app\security\users\users.component.ts" />
-    <TypeScriptCompile Include="app\security\users\users.module.ts" />
+    <TypeScriptCompile Include="app\security\security.module.ts" />
     <TypeScriptCompile Include="app\security\users\users.routing.ts" />
     <TypeScriptCompile Include="app\not-found.component.ts" />
     <TypeScriptCompile Include="app\shared\components\tableSimple.component.ts" />

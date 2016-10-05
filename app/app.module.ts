@@ -3,7 +3,7 @@ import { NgModule }          from '@angular/core';
 import { BrowserModule }     from '@angular/platform-browser';
 
 import { SharedModule }      from './shared/shared.module';
-import { UsersModule }       from './security/users/users.module';
+import { UsersModule }       from './security/security.module';
 import { PostsModule }       from './posts/posts.module';
 
 import { AppComponent }      from './app.component';
