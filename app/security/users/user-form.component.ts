@@ -193,7 +193,6 @@ export class UserFormComponent implements OnInit {
     save() {
 
         this.userLoading = true;
-
         if (this.user.id) {
             if (this.action === 'edit') {
                 this._userService.updateUser(this.user)

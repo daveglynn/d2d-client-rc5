@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 export class ClientValidators {
 
     static isEmpty(control: FormControl): { [s: string]: boolean } {
-        debugger;
+
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
 
              if (control.value.trim() == "")
@@ -14,7 +14,7 @@ export class ClientValidators {
     }
 
     static containsSpace(control: FormControl): { [s: string]: boolean } {
-        debugger;
+
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value.indexOf(' ') >= 0)
                 return { containsSpace: true };
@@ -24,7 +24,7 @@ export class ClientValidators {
     }
 
     static invalidEmailAddress(control: FormControl): { [s: string]: boolean } {
-        debugger;
+
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value.trim() != "") {
                 if (!control.value.match("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")) {
@@ -37,7 +37,7 @@ export class ClientValidators {
     }
 
     static invalidPassword(control: FormControl): { [s: string]: boolean } {
-        debugger;
+
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value.trim() != "") {
                 if (!control.value.match("^.{6,10}$")) {
@@ -60,7 +60,7 @@ export class ClientValidators {
 
 
     static outOfRange50(control: FormControl): { [s: string]: boolean } {
-        debugger;
+
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value != "") {
                 if (control.value.length > 50) {
@@ -84,7 +84,7 @@ export class ClientValidators {
 
     }
     static invalidNumberRange(control: FormControl): { [s: string]: boolean } {
-        debugger;
+
         if ((control.dirty == true) || (control.touched == true) || (control.pristine == false)) {
             if (control.value > 2147483647 || control.value < 0) {
                 return { 'invalidNumberRange': true };

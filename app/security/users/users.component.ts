@@ -14,7 +14,7 @@ export class UsersComponent implements OnInit {
     @Input() InputMode: string;
     @Input() InputModal: string;
     @Output() OutputButtonCloseClick = new EventEmitter();
-
+ 
     users = [];
 
     // control template modal

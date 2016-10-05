@@ -65,7 +65,7 @@ export class ErrorService {
         if (errorData.title === "") {
             var errorData = new Error("Error", "An Error occurred proccessing your request");
           }
-
+            debugger;
         console.log(errorData);
         this.errorOccurred.emit(errorData);
     };

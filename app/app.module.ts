@@ -15,6 +15,8 @@ import { usersRouting }      from './security/users/users.routing';
 import { postsRouting }      from './posts/posts.routing';
 import { routing }           from './app.routing';
 
+
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -23,7 +25,7 @@ import { routing }           from './app.routing';
         PostsModule,
         usersRouting,
         postsRouting,
-        routing
+        routing         
     ],
     declarations: [
         AppComponent,
