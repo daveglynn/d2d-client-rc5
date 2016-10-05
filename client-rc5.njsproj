@@ -33,6 +33,8 @@
     <Content Include="app\master\profiles\profile.service.js.map" />
     <Content Include="app\master\rulebooks\ruleBook.js.map" />
     <Content Include="app\master\rulebooks\ruleBook.service.js.map" />
+    <Content Include="app\security\tenants\tenant.js.map" />
+    <Content Include="app\security\tenants\tenant.service.js.map" />
     <Content Include="app\security\users\user-form.component.html" />
     <Content Include="app\security\users\user-form.component.js.map" />
     <Content Include="app\security\users\user.js.map" />
@@ -72,6 +74,8 @@
     <Compile Include="app\master\profiles\profile.service.js" />
     <Compile Include="app\master\rulebooks\ruleBook.js" />
     <Compile Include="app\master\rulebooks\ruleBook.service.js" />
+    <Compile Include="app\security\tenants\tenant.js" />
+    <Compile Include="app\security\tenants\tenant.service.js" />
     <Compile Include="app\security\users\user-form.component.js" />
     <Compile Include="app\security\users\user.js" />
     <Compile Include="app\security\users\user.service.js" />
@@ -116,6 +120,8 @@
     <Compile Include="app\main.js" />
     <Compile Include="app\navbar.component.js" />
     <Compile Include="app\prevent-unsaved-changes-guard.service.js" />
+    <TypeScriptCompile Include="app\security\tenants\tenant.service.ts" />
+    <TypeScriptCompile Include="app\security\tenants\tenant.ts" />
     <TypeScriptCompile Include="app\security\users\user-form.component.ts" />
     <TypeScriptCompile Include="app\security\users\user.service.ts" />
     <TypeScriptCompile Include="app\security\users\user.ts" />
@@ -184,6 +190,7 @@
     <Folder Include="app\master\rulebooks\" />
     <Folder Include="app\security\" />
     <Folder Include="app\posts" />
+    <Folder Include="app\security\tenants\" />
     <Folder Include="app\security\users\" />
     <Folder Include="app\shared" />
     <Folder Include="app\shared\components\" />
