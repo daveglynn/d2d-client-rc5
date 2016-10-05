@@ -6,7 +6,7 @@ import { PreventUnsavedChangesGuard } from '../../prevent-unsaved-changes-guard.
 import { SharedModule }        from '../../shared/shared.module';
 
 import { RouterModule }        from '@angular/router';
-import { HttpModule }          from '@angular/http';
+import { HttpModule }          from '@angular/http'; 
 
 import { User }                from './user';
 import { UserFormComponent }   from './user-form.component';
