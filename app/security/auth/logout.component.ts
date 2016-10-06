@@ -22,6 +22,7 @@ export class LogoutComponent implements OnInit{
     }
 
     onLogout() {
+
         this.loggingOut = true;
         this._authService.logout()
             .subscribe(
@@ -31,6 +32,7 @@ export class LogoutComponent implements OnInit{
     }
 
     handleError(error: any) {
+        debugger;
         console.log("handle error");
         this._commonService.clearLocalStorage();
         this.loggingOut = false;
@@ -38,10 +40,10 @@ export class LogoutComponent implements OnInit{
     }
 
     handleSuccess() {
+        debugger;
         console.log("handle success");
         this.loggingOut = false;
         this._commonService.clearLocalStorage();
-        this._authService.logout();
         this._router.navigate(['/auth/signin']);
     }
 }

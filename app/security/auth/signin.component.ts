@@ -20,7 +20,7 @@ export class SigninComponent implements OnInit {
     signingIn;
     form: FormGroup;
 
-    constructor(private _fb: FormBuilder, private _authService: AuthService, private _cs: ConstantsService, private _commonService: CommonService, private _errorService: ErrorService)  {
+    constructor(private _fb: FormBuilder, private _authService: AuthService, private _cs: ConstantsService, private _commonService: CommonService, private _errorService: ErrorService, private _router: Router)  {
 
     this.form = _fb.group({
             email: ['',[Validators.required,
@@ -32,7 +32,7 @@ export class SigninComponent implements OnInit {
                 Validators.required,
                 ClientValidators.containsSpace, 
                 ClientValidators.invalidPassword
-            ],
+            ]]
         });
     }
 
@@ -64,12 +64,13 @@ export class SigninComponent implements OnInit {
         var localData = new LocalData(data.token, data.user.id, data.user.firstName, data.user.lastName, data.user.email);
         this._commonService.clearLocalStorage();
         this._commonService.setLocalStorage(localData);
+
     }
 
     handleSuccess() {
         console.log("handle success");
         this.signingIn = false;
-        window.location.href = "/home";
+        this._router.navigateByUrl('/');
     }
 
 }

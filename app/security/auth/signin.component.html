@@ -5,8 +5,7 @@
         <div class="form-group">
             <label>Email</label>
             <input #email formControlName="email" type="text" name="email" class="form-control" id="email" placeholder="Required" focus>
-            <div *ngIf="form.controls.email.control.pending">Checking for Uniqueness...</div>
-            <div *ngIf="form.controls.email.touched  && form.controls.email.errors">
+              <div *ngIf="form.controls.email.touched  && form.controls.email.errors">
                 <div *ngIf="form.controls.email.errors.required" class="alert alert-danger">
                     Email is required
                 </div>
@@ -24,7 +23,7 @@
 
         <div class="form-group">
             <label>Password</label>
-            <input   #password formControlName="password" type="password" name="password" class="form-control" id="password" placeholder="Required"  focus>
+            <input  #password formControlName="password" type="password" name="password" class="form-control" id="password" placeholder="Required"  focus>
             <div *ngIf="form.controls.password.touched  && form.controls.password.errors">
                 <div *ngIf="form.controls.password.errors.required" class="alert alert-danger">
                     Password is required
