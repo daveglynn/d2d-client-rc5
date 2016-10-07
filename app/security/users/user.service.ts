@@ -39,7 +39,7 @@ export class UserService {
     }
     
     getUserById(userId) {
-        return this._http.get(this._url + "/user/" + userId  )
+        return this._http.get(this._url + "/user/" + userId, { search: this._commonService.getTokenAsParm() } )
             .map(res => res.json())
             .catch(error => Observable.throw(error.json()))
     }

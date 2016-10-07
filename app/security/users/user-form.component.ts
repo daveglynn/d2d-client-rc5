@@ -247,7 +247,8 @@ export class UserFormComponent implements OnInit {
     }
 
     cancel() {
-        this._router.navigate(['Users']);
+        this._location.back();
+
     }
 
     handleError(process, error: any) {
@@ -296,7 +297,6 @@ export class UserFormComponent implements OnInit {
         // this.form.markAsPristine();
         this.languages = this.languages;
         if ((process != 'getUserById') && (process != 'loadLanguages') && (process != 'loadProfiles')) {
-            // this._router.navigate(['Users']);
             this._location.back();
         }
     }

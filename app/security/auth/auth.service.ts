@@ -31,7 +31,8 @@ export class AuthService {
        
     logout() {
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this._http.delete(this._url + '/user/login', { headers: headers, search: this._commonService.getTokenAsParm()} )
+        return this._http.delete(this._url + '/user/login', { headers: headers, body: '', search: this._commonService.getTokenAsParm() })
+ 
            .map(response => response.json())
            .catch(error => Observable.throw(error.json()))
     }
