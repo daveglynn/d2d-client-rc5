@@ -24,7 +24,8 @@ export class SignupComponent implements OnInit {
         private _authService: AuthService,
         private _cs: ConstantsService,
         private _commonService: CommonService,
-        private _errorService: ErrorService) {
+        private _errorService: ErrorService,
+        private _router: Router) {
 
         this.form = _fb.group({
             firstName: ['', [
@@ -82,7 +83,7 @@ export class SignupComponent implements OnInit {
         console.log("handle success");
         this.signingUp = false;
          this._commonService.clearLocalStorage();
-         window.location.href = "/security/auth/signin";
+         this._router.navigate(['/auth/signin']);
    }
 
 }

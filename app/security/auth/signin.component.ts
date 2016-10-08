@@ -20,7 +20,12 @@ export class SigninComponent implements OnInit {
     signingIn;
     form: FormGroup;
 
-    constructor(private _fb: FormBuilder, private _authService: AuthService, private _cs: ConstantsService, private _commonService: CommonService, private _errorService: ErrorService, private _router: Router)  {
+    constructor(private _fb: FormBuilder,
+        private _authService: AuthService,
+        private _cs: ConstantsService,
+        private _commonService: CommonService,
+        private _errorService: ErrorService,
+        private _router: Router) {
 
     this.form = _fb.group({
             email: ['',[Validators.required,
