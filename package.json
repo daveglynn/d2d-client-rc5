@@ -28,7 +28,8 @@
     "zone.js": "^0.6.12",
     "angular2-in-memory-web-api": "0.0.15",
     "bootstrap": "^3.3.6",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+     "typings": "^1.0.4"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
