@@ -180,7 +180,6 @@
     <TypeScriptCompile Include="app\users\users.module.ts" />
     <TypeScriptCompile Include="app\users\users.routing.ts" />
     <Compile Include="app\users\user-form.component.js" />
-    <Compile Include="app\users\user.service.js" />
     <Compile Include="app\users\users.component.js" />
     <Compile Include="app\users\users.module.js" />
     <Compile Include="app\users\users.routing.js" />
@@ -217,7 +216,6 @@
     <Folder Include="app\shared\helpers\" />
     <Folder Include="app\shared\pipes\" />
     <Folder Include="app\shared\validators\" />
-    <Folder Include="app\users" />
     <Folder Include="assets" />
     <Folder Include="assets\custom\" />
     <Folder Include="assets\custom\stylesheets\" />
