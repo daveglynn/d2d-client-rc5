@@ -275,6 +275,7 @@ export class UserFormComponent implements OnInit {
         console.log(data);
 
         if (process === 'getUserById') {
+            debugger;
             this.user = data;
             this.user.enabledFrom = this._commonService.getLocalDate(this.user.enabledFrom);
             this.user.enabledTo = this._commonService.getLocalDate(this.user.enabledTo);
