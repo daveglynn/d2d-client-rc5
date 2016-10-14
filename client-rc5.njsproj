@@ -216,6 +216,7 @@
     <Folder Include="app\shared\helpers\" />
     <Folder Include="app\shared\pipes\" />
     <Folder Include="app\shared\validators\" />
+    <Folder Include="app\users\" />
     <Folder Include="assets" />
     <Folder Include="assets\custom\" />
     <Folder Include="assets\custom\stylesheets\" />

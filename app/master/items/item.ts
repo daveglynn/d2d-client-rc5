@@ -14,15 +14,15 @@
 export class Item {
 	constructor( 
 		public id?: number
-	 	,public listId?: number
-	 	,public active?: boolean
-	 	,public name?: string
-	 	,public code?: string
-	 	,public ruleBookId?: number
-	 	,public expired?: boolean
-	 	,public parent?: boolean
-	 	,public parentListId?: number
-	  ) { }
+		 	,public listId?: number
+		 	,public active?: boolean
+		 	,public name?: string
+		 	,public code?: string
+		 	,public ruleBookId?: number
+		 	,public expired?: boolean
+		 	,public parent?: boolean
+		 	,public parentListId?: number
+		  ) { }
 }
     
 export class DropDownParent {

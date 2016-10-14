@@ -14,11 +14,11 @@
 export class Profile {
 	constructor( 
 		public id?: number
-	 	,public name?: string
-	 	,public active?: boolean
-	 	,public description?: string
-	 	,public hideElements?: string
-	  ) { }
+		 	,public name?: string
+		 	,public active?: boolean
+		 	,public description?: string
+		 	,public hideElements?: string
+		  ) { }
 }
     
 	

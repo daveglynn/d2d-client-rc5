@@ -14,12 +14,12 @@
 export class List {
 	constructor( 
 		public id?: number
-	 	,public name?: string
-	 	,public active?: boolean
-	 	,public isMetaData?: boolean
-	 	,public display?: number
-	 	,public sort?: number
-	  ) { }
+		 	,public name?: string
+		 	,public active?: boolean
+		 	,public isMetaData?: boolean
+		 	,public display?: number
+		 	,public sort?: number
+		  ) { }
 }
     
 	
