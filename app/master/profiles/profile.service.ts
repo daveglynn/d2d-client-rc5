@@ -36,7 +36,7 @@ export class ProfileService {
 	  		if (filter && filter.active) {
              parms['active'] = filter.active;
 		};
-    
+        debugger;
         const headers = new Headers({ 'Content-Type': 'application/json' });
         return this._http.get(this._url + "/profile/all", { search: this._commonService.setParms(parms) })
             .map(res => res.json())

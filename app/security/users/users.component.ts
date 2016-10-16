@@ -226,7 +226,7 @@ export class UsersComponent implements OnInit {
     }
 
     private handleData(process, data: any) {
-
+        debugger;
         console.log("handle data");
         console.log(data);
         if (process === 'getUsersAll') {

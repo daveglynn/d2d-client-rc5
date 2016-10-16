@@ -171,18 +171,6 @@
     <TypeScriptCompile Include="app\shared\validators\client.validators.ts" />
     <TypeScriptCompile Include="app\shared\shared.module.ts" />
     <Compile Include="app\shared\shared.module.js" />
-    <Content Include="app\users\user-form.component.html" />
-    <Content Include="app\users\users.component.html" />
-    <TypeScriptCompile Include="app\users\user-form.component.ts" />
-    <TypeScriptCompile Include="app\users\user.service.ts" />
-    <TypeScriptCompile Include="app\users\user.ts" />
-    <TypeScriptCompile Include="app\users\users.component.ts" />
-    <TypeScriptCompile Include="app\users\users.module.ts" />
-    <TypeScriptCompile Include="app\users\users.routing.ts" />
-    <Compile Include="app\users\user-form.component.js" />
-    <Compile Include="app\users\users.component.js" />
-    <Compile Include="app\users\users.module.js" />
-    <Compile Include="app\users\users.routing.js" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\stylesheets\bootstrap.css" />
@@ -216,7 +204,6 @@
     <Folder Include="app\shared\helpers\" />
     <Folder Include="app\shared\pipes\" />
     <Folder Include="app\shared\validators\" />
-    <Folder Include="app\users\" />
     <Folder Include="assets" />
     <Folder Include="assets\custom\" />
     <Folder Include="assets\custom\stylesheets\" />
